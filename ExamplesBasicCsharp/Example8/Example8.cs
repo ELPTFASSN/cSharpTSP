@@ -1,29 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Example8
 {
-    class Example8
+    internal class Example8
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //program entry point
 
-            string consigna = "\n\tIngresar tres numeros y determinar cual es el mayor";
+            var consigna = "\n\tIngresar tres numeros y determinar cual es el mayor y menor.";
 
             Console.WriteLine(consigna);
-            Console.WriteLine("Ingresá un número");
-            int A = Convert.ToInt16(Console.ReadLine());
 
-            Console.WriteLine("Ingresá un número");
-            int B = Convert.ToInt16(Console.ReadLine());
+            #region interaccion con el usuario
 
-            Console.WriteLine("Ingresá un número");
-            int C = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("\nIngresá un número");
+            int A = Convert.ToInt16(Console.ReadLine()); // aqui vemos como declarar directamente y almacenar
 
+            Console.WriteLine("\nIngresá un número");
+            int B = Convert.ToInt16(Console.ReadLine()); // aqui vemos como declarar directamente y almacenar
+
+            Console.WriteLine("\nIngresá un número");
+            int C = Convert.ToInt16(Console.ReadLine()); // aqui vemos como declarar directamente y almacenar
+
+            #endregion interaccion con el usuario
+
+            #region logica de comparaciones para numero mayor 
 
             {
                 if (A > B && A > C)
@@ -33,7 +35,6 @@ namespace Example8
 
                 else
                 {
-
                     if (B > A && B > C)
                     {
                         Console.WriteLine("El número mayor es " + B);
@@ -44,8 +45,11 @@ namespace Example8
                         Console.WriteLine("El número mayor es " + C);
                     }
                 }
-                Console.ReadLine();
             }
+
+            #endregion logica de comparaciones para numero mayor
+
+            #region logica de comparaciones para numero menor
 
             {
                 if (A < B && A < C)
@@ -64,8 +68,12 @@ namespace Example8
                         Console.WriteLine("El número menos es " + C);
                     }
                 }
-                Console.ReadLine();
+
+
+                Console.ReadKey();
             }
+
+            #endregion logica de comparaciones para numero menor
         }
     }
 }

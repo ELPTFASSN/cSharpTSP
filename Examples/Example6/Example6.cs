@@ -1,46 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Example6
 {
-    class Example6
-    {   //entry point of the current program
-        static void Main(string[] args)
+    internal class Example6
+    {
+//entry point of the current program
+        private static void Main(string[] args)
         {
             //cambiar el nombre de la consola
             Console.Title = "Dias de la semana";
 
             #region Inicio de variables
 
-            string consigna = "\n\tIngresar un numero y mostrar a que dia de la semana corresponde.";
+            var consigna = "\n\tIngresar un numero y mostrar a que dia de la semana corresponde.";
 
             int _numero;
-            bool ok; // la vamos a usar para asegurar el ingreso correcto de numeros solamente para la ejecucion con un ciclo do-while.
-
+            bool ok;
+                // la vamos a usar para asegurar el ingreso correcto de numeros solamente para la ejecucion con un ciclo do-while.
 
             #endregion
 
             #region Interaccion con el usuario
 
-
-            do // iniciamos el ciclo dp-while para la validacion general.La logica del do es si se cumple la condicion almecenar el valor obtenido en una variable y seguir.
-                {
+            do
+                // iniciamos el ciclo dp-while para la validacion general.La logica del do es si se cumple la condicion almecenar el valor obtenido en una variable y seguir.
+            {
                 Console.WriteLine(consigna);
                 Console.Write("\nIngresa un numero entre 1 y 7 por favor: ");
                 ok = int.TryParse(Console.ReadLine(), out _numero); // almacenamos TRUE  si la conversin se pudo hacer
-                if (!ok) // aca decimos, si es DISTINTO de ok,osea que no se pudo almecenar, mostramos un mensaje de error
+                if (!ok)
+                    // aca decimos, si es DISTINTO de ok,osea que no se pudo almecenar, mostramos un mensaje de error
                     Console.WriteLine("Ingresa solo numeros por favor");
-                }
+            } while (!ok);
 
-            while (!ok);
             #endregion interaccion con el usuario
 
-            { 
-                
-
+            {
                 #region Switch area
 
                 switch (_numero)
@@ -68,27 +63,25 @@ namespace Example6
                         break;
 
                     default:
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Ingresa numeros entre 1 y 7 por favor.");
-                            Console.ResetColor();
-                            break;
-                        }
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Ingresa numeros entre 1 y 7 por favor.");
+                        Console.ResetColor();
+                        break;
+                    }
                 }
-            #endregion switch
+
+                #endregion switch
 
                 #region Final de comprobaciones & cierre de app
+
                 Console.WriteLine("\n\nPresional cualquier tecla para salir por favor");
                 Console.ReadKey();
 
                 Environment.Exit(0);
+
                 #endregion
             }
-            
-
-
-
-
         }
     }
 }
